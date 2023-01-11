@@ -12,7 +12,7 @@ func main() {
 	settings.LoadEnv()
 
 	// hello world http route
-	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello World!"))
 	})
 
