@@ -11,6 +11,11 @@ import (
 func main() {
 	settings.LoadEnv()
 
+	// hello world http route
+	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello World!"))
+	})
+
 	go http.ListenAndServe(":"+settings.GetEnv("PORT"), nil)
 
 	publishPost()
