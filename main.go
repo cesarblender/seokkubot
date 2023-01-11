@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 	"time"
 
 	"mybot/lib"
@@ -9,6 +10,8 @@ import (
 
 func main() {
 	settings.LoadEnv()
+
+	go http.ListenAndServe(":"+settings.GetEnv("PORT"), nil)
 
 	publishPost()
 
